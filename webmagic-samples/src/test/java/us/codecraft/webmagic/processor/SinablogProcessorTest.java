@@ -17,7 +17,7 @@ import java.io.IOException;
  */
 public class SinablogProcessorTest {
 
-    @Ignore
+//    @Ignore
     @Test
     public void test() throws IOException {
         SinaBlogProcessor sinaBlogProcessor = new SinaBlogProcessor();
@@ -29,7 +29,7 @@ public class SinablogProcessorTest {
         //ConsolePipeline输出结果到控制台
         //FileCacheQueueSchedular保存url，支持断点续传，临时文件输出到/data/temp/webmagic/cache目录
         //Spider.run()执行
-        Spider.create(sinaBlogProcessor).pipeline(new FilePipeline()).pipeline(pipeline).scheduler(new FileCacheQueueScheduler("/data/temp/webmagic/cache/")).
-                run();
+        Spider.create(sinaBlogProcessor).pipeline(new FilePipeline()).pipeline(pipeline).scheduler(new FileCacheQueueScheduler("/data/temp/webmagic/cache/")).addUrl("http://blog.sina.com.cn/s/articlelist_1487828712_0_1.html")
+                .run();
     }
 }
